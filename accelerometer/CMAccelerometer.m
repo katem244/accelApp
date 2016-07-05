@@ -84,7 +84,6 @@
     }
     
     NSLog([self timeStamp]);
-    NSLog(@"Force git change.");
     
 }
 
