@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 BOOL toggleIsOn;
 
 @interface CMAccelerometer : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *textf;
+@property (nonatomic, readonly, strong) DBManager *dbManager;
 
 - (IBAction)toggleButton:(id)sender;
-
-- (IBAction)submit:(id)sender;
 
 @end
 
