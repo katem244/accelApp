@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="POd-XB-s8p">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="or5-uo-F5t">
+                                <rect key="frame" x="119" y="238" width="316" height="139"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Press Me!">
+                                            <attributes>
+                                                <font key="NSFont" size="48" name="Cochin"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="kPs-UX-J78" kind="push" id="oLl-c0-zDK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80826675891876221" green="0.92552393674850464" blue="0.95104914903640747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.34276667237281799" green="0.42875593900680542" blue="0.91109925508499146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="or5-uo-F5t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gwg-5u-pCw"/>
+                            <constraint firstItem="or5-uo-F5t" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YYX-xI-HUb"/>
+                            <constraint firstItem="or5-uo-F5t" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mVs-F0-Bad"/>
+                            <constraint firstItem="or5-uo-F5t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vBu-gn-xjI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4wA-Or-smp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="379"/>
+        </scene>
+        <!--Accelerometer-->
+        <scene sceneID="JSH-pE-2If">
+            <objects>
+                <viewController id="kPs-UX-J78" customClass="CMAccelerometer" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QVT-z0-KAz"/>
+                        <viewControllerLayoutGuide type="bottom" id="K7O-kt-6J2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Btp-gl-xl4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-uT-D3X">
+                                <rect key="frame" x="192" y="500" width="216" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="0.4584343327" blue="0.45037198350000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleButton:" destination="kPs-UX-J78" eventType="touchUpInside" id="40n-fz-nm7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80826675891876221" green="0.92552393674850464" blue="0.95104914903640747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ucR-uT-D3X" firstAttribute="centerX" secondItem="Btp-gl-xl4" secondAttribute="centerX" id="sEH-4K-RTc"/>
+                            <constraint firstItem="ucR-uT-D3X" firstAttribute="centerY" secondItem="Btp-gl-xl4" secondAttribute="centerY" id="sj9-DQ-y5a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="reQ-IC-dlo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="laA-nH-zqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156" y="379"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kRw-ea-4Fg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="POd-XB-s8p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QC6-67-SYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qvZ-0l-b5A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRx-1H-Rb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-478" y="379"/>
+        </scene>
+    </scenes>
+</document>
