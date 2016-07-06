@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46417FA01D2C651000F2E5E0 /* CMAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46417F9F1D2C651000F2E5E0 /* CMAccelerometer.m */; };
 		46C165421D1C5ED600BE9F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C165411D1C5ED600BE9F39 /* main.m */; };
 		46C165451D1C5ED600BE9F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C165441D1C5ED600BE9F39 /* AppDelegate.m */; };
 		46C165481D1C5ED600BE9F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C165471D1C5ED600BE9F39 /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		46C1654D1D1C5ED600BE9F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C1654C1D1C5ED600BE9F39 /* Assets.xcassets */; };
 		46C1655B1D1C5ED600BE9F39 /* accelerometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C1655A1D1C5ED600BE9F39 /* accelerometerTests.m */; };
 		46C165661D1C5ED600BE9F39 /* accelerometerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C165651D1C5ED600BE9F39 /* accelerometerUITests.m */; };
-		46C1657D1D219D1100BE9F39 /* CMAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C1657C1D219D1100BE9F39 /* CMAccelerometer.m */; };
 		46C1657F1D219DE800BE9F39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C1657E1D219DE800BE9F39 /* CoreGraphics.framework */; };
 		46C165811D219E0E00BE9F39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C165801D219E0E00BE9F39 /* UIKit.framework */; };
 		46C165831D219E1800BE9F39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46C165821D219E1800BE9F39 /* Foundation.framework */; };
@@ -42,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46417F9E1D2C651000F2E5E0 /* CMAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAccelerometer.h; sourceTree = "<group>"; };
+		46417F9F1D2C651000F2E5E0 /* CMAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAccelerometer.m; sourceTree = "<group>"; };
 		46C1653D1D1C5ED600BE9F39 /* accelerometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = accelerometer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C165411D1C5ED600BE9F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46C165431D1C5ED600BE9F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		46C165611D1C5ED600BE9F39 /* accelerometerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = accelerometerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46C165651D1C5ED600BE9F39 /* accelerometerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = accelerometerUITests.m; sourceTree = "<group>"; };
 		46C165671D1C5ED600BE9F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46C1657B1D219D1100BE9F39 /* CMAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMAccelerometer.h; path = ../../../CoreMotionExercise/CoreMotion/CMAccelerometer.h; sourceTree = "<group>"; };
-		46C1657C1D219D1100BE9F39 /* CMAccelerometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMAccelerometer.m; path = ../../../CoreMotionExercise/CoreMotion/CMAccelerometer.m; sourceTree = "<group>"; };
 		46C1657E1D219DE800BE9F39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		46C165801D219E0E00BE9F39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46C165821D219E1800BE9F39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,9 +128,9 @@
 		46C1653F1D1C5ED600BE9F39 /* accelerometer */ = {
 			isa = PBXGroup;
 			children = (
+				46417F9E1D2C651000F2E5E0 /* CMAccelerometer.h */,
+				46417F9F1D2C651000F2E5E0 /* CMAccelerometer.m */,
 				46C165941D259BB100BE9F39 /* myDB.sql */,
-				46C1657B1D219D1100BE9F39 /* CMAccelerometer.h */,
-				46C1657C1D219D1100BE9F39 /* CMAccelerometer.m */,
 				46C165431D1C5ED600BE9F39 /* AppDelegate.h */,
 				46C165441D1C5ED600BE9F39 /* AppDelegate.m */,
 				46C165461D1C5ED600BE9F39 /* ViewController.h */,
@@ -308,8 +308,8 @@
 				46C165481D1C5ED600BE9F39 /* ViewController.m in Sources */,
 				46C165451D1C5ED600BE9F39 /* AppDelegate.m in Sources */,
 				46C165421D1C5ED600BE9F39 /* main.m in Sources */,
+				46417FA01D2C651000F2E5E0 /* CMAccelerometer.m in Sources */,
 				46C165931D2581A900BE9F39 /* DBManager.m in Sources */,
-				46C1657D1D219D1100BE9F39 /* CMAccelerometer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

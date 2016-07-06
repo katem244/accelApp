@@ -68,7 +68,9 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     NSLog(@"Hi");
-    NSString *query = [NSString stringWithFormat:@"insert into touch_data values('@s')", [self timeStamp]];
+//    NSString *insert = @"insert into touch_data values";
+//    NSString *concat = [insert stringByAppendingString:NSLog(
+    NSString *query = [NSString stringWithFormat:@"insert into touch_data values", [self timeStamp]];
     
     // Execute the query.
     [self.dbManager executeQuery:query];
@@ -82,6 +84,20 @@
     else{
         NSLog(@"Could not execute the query.");
     }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    NSDate *todaysDate = [NSDate date];
+    NSLog(@"Todays date is %@",[formatter stringFromDate:todaysDate]);
+   
+    
+
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    
+    
+    
+    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
+    NSLog(@"%@",[DateFormatter stringFromDate:[NSDate date]]);
+    
     
     NSLog([self timeStamp]);
     
