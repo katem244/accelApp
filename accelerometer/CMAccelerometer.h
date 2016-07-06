@@ -15,6 +15,9 @@ BOOL toggleIsOn;
 @property (nonatomic, readonly, strong) DBManager *dbManager;
 
 - (IBAction)toggleButton:(id)sender;
+- (IBAction)deleteTouchData:(id)sender;
+- (IBAction)deleteAccelData:(id)sender;
+
 
 @end
 

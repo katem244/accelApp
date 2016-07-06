@@ -60,10 +60,6 @@
             query = [query stringByAppendingString:@"',"];
             query = [query stringByAppendingString:xyz];
             
-
-            NSLog(query);
-
-            //            query = [NSString stringWithFormat:query];
             [self.dbManager executeQuery:query];
 
             if (self.dbManager.affectedRows != 0) {
@@ -73,10 +69,6 @@
             else{
                 NSLog(@"Could not execute the query.");
             }
-            
-            
-//
-//            NSString *query = @"insert into accel_data values"
 
         }];
         
@@ -114,9 +106,13 @@
     }
 }
 
-
-- (IBAction)deleteData:(id)sender {
+- (IBAction)deleteTouchData:(id)sender {
     NSString *query = [NSString stringWithFormat:@"Delete from touch_data"];
+    [self.dbManager executeQuery:query];
+}
+
+- (IBAction)deleteAccelData:(id)sender {
+    NSString *query = [NSString stringWithFormat:@"Delete from accel_data"];
     [self.dbManager executeQuery:query];
 }
 

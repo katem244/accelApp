@@ -75,11 +75,21 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHv-kA-tCT">
                                 <rect key="frame" x="132" y="77" width="337" height="62"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                <state key="normal" title="Delete All Touch Data">
+                                <state key="normal" title="Delete Touch Data">
                                     <color key="titleColor" red="0.23783907294273376" green="0.68094700574874878" blue="0.088665269315242767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteData:" destination="kPs-UX-J78" eventType="touchUpInside" id="KnP-IZ-upl"/>
+                                    <action selector="deleteTouchData:" destination="kPs-UX-J78" eventType="touchUpInside" id="i0m-nA-UuV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-P0-XLY">
+                                <rect key="frame" x="132" y="147" width="359" height="30"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                <state key="normal" title="Delete Accelerometer Data">
+                                    <color key="titleColor" red="0.23783907294273376" green="0.68094700574874878" blue="0.088665269315242767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAccelData:" destination="kPs-UX-J78" eventType="touchUpInside" id="7lU-D9-BgK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,6 +98,7 @@
                             <constraint firstItem="pHv-kA-tCT" firstAttribute="centerX" secondItem="Btp-gl-xl4" secondAttribute="centerX" id="rmq-PK-kCh"/>
                             <constraint firstItem="ucR-uT-D3X" firstAttribute="centerX" secondItem="Btp-gl-xl4" secondAttribute="centerX" id="sEH-4K-RTc"/>
                             <constraint firstItem="ucR-uT-D3X" firstAttribute="centerY" secondItem="Btp-gl-xl4" secondAttribute="centerY" id="sj9-DQ-y5a"/>
+                            <constraint firstItem="Pbr-P0-XLY" firstAttribute="centerX" secondItem="Btp-gl-xl4" secondAttribute="centerX" id="vhe-kh-81p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="reQ-IC-dlo"/>
