@@ -67,44 +67,36 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    NSLog(@"Hi");
-//    NSString *insert = @"insert into touch_data values";
-//    NSString *concat = [insert stringByAppendingString:NSLog(
-    NSString *query = [NSString stringWithFormat:@"insert into touch_data values", [self timeStamp]];
     
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
+    NSLog(@"%@",[DateFormatter stringFromDate:[NSDate date]]);
+    
+    NSString *date = [DateFormatter stringFromDate:[NSDate date]];
+    
+    NSString *final = @"insert into touch_data values('";
+    final = [final stringByAppendingString:date];
+    final = [final stringByAppendingString:@"')"];
+  
+    NSString *query = [NSString stringWithFormat:final];
+
     // Execute the query.
     [self.dbManager executeQuery:query];
     
     // If the query was successfully executed then pop the view controller.
     if (self.dbManager.affectedRows != 0) {
-        NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
         NSLog(@"%lld", self.dbManager.lastInsertedRowID);
         [self.dbManager copyDatabaseIntoDocumentsDirectory];
     }
     else{
         NSLog(@"Could not execute the query.");
     }
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
-    NSDate *todaysDate = [NSDate date];
-    NSLog(@"Todays date is %@",[formatter stringFromDate:todaysDate]);
-   
-    
-
-    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
-    
-    
-    
-    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
-    NSLog(@"%@",[DateFormatter stringFromDate:[NSDate date]]);
-    
-    
-    NSLog([self timeStamp]);
-    
 }
-
-- (NSString *) timeStamp {
-    return [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+- (IBAction)deleteData:(id)sender {
+    NSString *query = [NSString stringWithFormat:@"Delete from touch_data"];
+    
+    // Execute the query.
+    [self.dbManager executeQuery:query];
 }
 
 @end
