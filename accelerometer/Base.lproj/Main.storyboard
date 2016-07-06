@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHv-kA-tCT">
-                                <rect key="frame" x="139" y="439" width="337" height="62"/>
+                                <rect key="frame" x="132" y="77" width="337" height="62"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <state key="normal" title="Delete All Touch Data">
                                     <color key="titleColor" red="0.23783907294273376" green="0.68094700574874878" blue="0.088665269315242767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

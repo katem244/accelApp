@@ -19,13 +19,9 @@
 @property (nonatomic, strong) NSManagedObject *object;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, readwrite, strong) DBManager *dbManager;
-
-
 @end
 
 @implementation CMAccelerometer
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"myDB.sql"];
@@ -34,7 +30,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 - (IBAction)toggleButton:(id)sender {
     if (!toggleIsOn) {
@@ -52,6 +47,37 @@
             double z = _motionManager.accelerometerData.acceleration.z;
             
             NSLog(@"X: %.2f, Y: %.2f, Z: %.2f", x, y, z);
+
+            NSString *xyz = [NSString stringWithFormat:@"%.2f,%.2f,%.2f)", x, y, z];
+            
+            NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+            [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
+            
+            NSString *date = [DateFormatter stringFromDate:[NSDate date]];
+            
+            NSString *query = @"insert into accel_data values('";
+            query = [query stringByAppendingString:date];
+            query = [query stringByAppendingString:@"',"];
+            query = [query stringByAppendingString:xyz];
+            
+
+            NSLog(query);
+
+            //            query = [NSString stringWithFormat:query];
+            [self.dbManager executeQuery:query];
+
+            if (self.dbManager.affectedRows != 0) {
+                NSLog(@"%lld", self.dbManager.lastInsertedRowID);
+                [self.dbManager copyDatabaseIntoDocumentsDirectory];
+            }
+            else{
+                NSLog(@"Could not execute the query.");
+            }
+            
+            
+//
+//            NSString *query = @"insert into accel_data values"
+
         }];
         
         
@@ -70,20 +96,15 @@
     
     NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
     [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
-    NSLog(@"%@",[DateFormatter stringFromDate:[NSDate date]]);
     
     NSString *date = [DateFormatter stringFromDate:[NSDate date]];
     
-    NSString *final = @"insert into touch_data values('";
-    final = [final stringByAppendingString:date];
-    final = [final stringByAppendingString:@"')"];
+    NSString *query = @"insert into touch_data values('";
+    query = [query stringByAppendingString:date];
+    query = [query stringByAppendingString:@"')"];
   
-    NSString *query = [NSString stringWithFormat:final];
-
-    // Execute the query.
     [self.dbManager executeQuery:query];
     
-    // If the query was successfully executed then pop the view controller.
     if (self.dbManager.affectedRows != 0) {
         NSLog(@"%lld", self.dbManager.lastInsertedRowID);
         [self.dbManager copyDatabaseIntoDocumentsDirectory];
@@ -92,10 +113,10 @@
         NSLog(@"Could not execute the query.");
     }
 }
+
+
 - (IBAction)deleteData:(id)sender {
     NSString *query = [NSString stringWithFormat:@"Delete from touch_data"];
-    
-    // Execute the query.
     [self.dbManager executeQuery:query];
 }
 
