@@ -40,6 +40,8 @@
         
         NSOperationQueue *theQueue = [[NSOperationQueue alloc] init];
         
+        _motionManager.accelerometerUpdateInterval = 0.1;
+        
         [_motionManager startAccelerometerUpdatesToQueue:theQueue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             
             double x = _motionManager.accelerometerData.acceleration.x;
@@ -48,7 +50,7 @@
             
             NSLog(@"X: %.2f, Y: %.2f, Z: %.2f", x, y, z);
 
-            NSString *xyz = [NSString stringWithFormat:@"%.2f,%.2f,%.2f)", x, y, z];
+            NSString *xyz = [NSString stringWithFormat:@" %.2f , %.2f , %.2f)", x, y, z];
             
             NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
             [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
