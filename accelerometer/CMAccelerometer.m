@@ -52,13 +52,10 @@
 
             NSString *xyz = [NSString stringWithFormat:@" %.2f , %.2f , %.2f)", x, y, z];
             
-            NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
-            [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
-            
-            NSString *date = [DateFormatter stringFromDate:[NSDate date]];
+            NSTimeInterval timestamp =[[NSDate date] timeIntervalSince1970];
             
             NSString *query = @"insert into accel_data values('";
-            query = [query stringByAppendingString:date];
+            query = [query stringByAppendingString:[NSString stringWithFormat:@"%.3f", timestamp]];
             query = [query stringByAppendingString:@"',"];
             query = [query stringByAppendingString:xyz];
             
@@ -88,13 +85,11 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     
-    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
-    [DateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss.SSS"];
-    
-    NSString *date = [DateFormatter stringFromDate:[NSDate date]];
+    NSTimeInterval timestamp =[[NSDate date] timeIntervalSince1970];
     
     NSString *query = @"insert into touch_data values('";
-    query = [query stringByAppendingString:date];
+    query = [query stringByAppendingString:[NSString stringWithFormat:@"%.3f", timestamp]];
+             
     query = [query stringByAppendingString:@"')"];
   
     [self.dbManager executeQuery:query];
