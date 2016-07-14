@@ -19,7 +19,19 @@
 @property (nonatomic, strong) NSManagedObject *object;
 @property (nonatomic, strong) NSManagedObjectContext *context;
 @property (nonatomic, readwrite, strong) DBManager *dbManager;
+//@property double x;
+//@property double y;
+//@property double z;
+@property double oldX;
+@property double oldY;
+@property double oldZ;
+//@property double kUpdateFrequency;
+//@property double cutOffFrequency;
+//@property double dt;
+//@property double RC;
+//@property double alpha;
 @end
+
 
 @implementation CMAccelerometer
 - (void)viewDidLoad {
@@ -31,6 +43,23 @@
     [super didReceiveMemoryWarning];
 }
 
+
+//- (id)init: (CMMotionManager *) manager{
+//    self.motionManager = manager;
+////    _x = 0.0;
+////    _y = 0.0;
+////    _z = 0.0;
+////    _lastX = 0.0;
+////    _lastY = 0.0;
+////    _lastZ = 0.00;
+//    self.kUpdateFrequency = 60.0;
+//    self.cutOffFrequency = 5.0;
+//    self.dt = 1.0 / _kUpdateFrequency;
+//    self.RC = 1.0 / _cutOffFrequency;
+//    self.alpha = _RC / (_dt+_RC);
+////    return 0;
+//}
+
 - (IBAction)toggleButton:(id)sender {
     if (!toggleIsOn) {
         [sender setTitle:@"Stop" forState:UIControlStateNormal];
@@ -40,7 +69,7 @@
         
         NSOperationQueue *theQueue = [[NSOperationQueue alloc] init];
         
-        _motionManager.accelerometerUpdateInterval = 0.1;
+        _motionManager.accelerometerUpdateInterval = 0.02;
         
         [_motionManager startAccelerometerUpdatesToQueue:theQueue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             
@@ -48,9 +77,10 @@
             double y = _motionManager.accelerometerData.acceleration.y;
             double z = _motionManager.accelerometerData.acceleration.z;
             
-            NSLog(@"X: %.2f, Y: %.2f, Z: %.2f", x, y, z);
+            
+            NSLog(@"X: %.20f, Y: %.20f, Z: %.20f", x, y, z);
 
-            NSString *xyz = [NSString stringWithFormat:@" %.2f , %.2f , %.2f)", x, y, z];
+            NSString *xyz = [NSString stringWithFormat:@" %.7f , %.7f , %.7f)", x, y, z];
             
             NSTimeInterval timestamp =[[NSDate date] timeIntervalSince1970];
             
@@ -112,5 +142,7 @@
     NSString *query = [NSString stringWithFormat:@"Delete from accel_data"];
     [self.dbManager executeQuery:query];
 }
+
+
 
 @end
