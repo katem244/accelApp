@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "73253D2E10D5986895429F12BED5E872D1331FDE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "73253D2E10D5986895429F12BED5E872D1331FDE" : 0,
+    "04101981B66E318109934C9516F88D824BB96459" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F1B99571-3796-423A-BD13-C6390D23036A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "73253D2E10D5986895429F12BED5E872D1331FDE" : "accelerometer\/",
+    "04101981B66E318109934C9516F88D824BB96459" : "accelerometer\/fmdb\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "accelerometer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "accelerometer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ccgus\/fmdb.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "04101981B66E318109934C9516F88D824BB96459"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/katem244\/accelApp",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "73253D2E10D5986895429F12BED5E872D1331FDE"
+    }
+  ]
+}

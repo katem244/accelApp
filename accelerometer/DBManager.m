@@ -139,12 +139,15 @@
                 else {
                     // If could not execute the query show the error message on the debugger.
                     NSLog(@"DB Error: %s", sqlite3_errmsg(sqlite3Database));
+                    if (strcmp(sqlite3_errmsg(sqlite3Database),"database is locked")){
+                        NSLog(@"yes");
+                    }
                 }
             }
         }
         else {
-            // In the database cannot be opened then show the error message on the debugger.
-            NSLog(@"%s", sqlite3_errmsg(sqlite3Database));
+            // IF the database cannot be opened then show the error message on the debugger.
+            NSLog(@"THE ERROR IS: %s", sqlite3_errmsg(sqlite3Database));
         }
         
         // Release the compiled statement from memory.
