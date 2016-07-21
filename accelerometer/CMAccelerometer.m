@@ -26,10 +26,12 @@
 @implementation CMAccelerometer
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Initialize database for accelerometer data
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"myDB.sql"];
     
+    // Make text file for touch events
     [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"touchData.txt"];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,24 +39,27 @@
 }
 
 - (IBAction)toggleButton:(id)sender {
+    
+    // When you click the button that says "Start", begin taking accelerometer data
     if (!toggleIsOn) {
         [sender setTitle:@"Stop" forState:UIControlStateNormal];
         toggleIsOn = YES;
         
+        // Initialize motion manager from Core Motion
         _motionManager = [[CMMotionManager alloc] init];
         
         NSOperationQueue *theQueue = [[NSOperationQueue alloc] init];
         
+        // Set frequency of accelerometer updates to be 50 per second
         _motionManager.accelerometerUpdateInterval = 0.02;
         
         [_motionManager startAccelerometerUpdatesToQueue:theQueue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             
+            // Extract x, y, z accelerometer data
             double x = _motionManager.accelerometerData.acceleration.x;
             double y = _motionManager.accelerometerData.acceleration.y;
             double z = _motionManager.accelerometerData.acceleration.z;
             
-//            NSLog(@"X: %.20f, Y: %.20f, Z: %.20f", x, y, z);
-
             NSString *xyz = [NSString stringWithFormat:@" %.7f , %.7f , %.7f)", x, y, z];
             
             NSTimeInterval timestamp =[[NSDate date] timeIntervalSince1970];
@@ -64,6 +69,8 @@
             query = [query stringByAppendingString:@"',"];
             query = [query stringByAppendingString:xyz];
             
+            // Execute the query of form "insert into accel_data values(1,2,3,4)" where 1,2,3,4 correspond to
+            // timestamp,x,y,z values respectively
             [self.dbManager executeQuery:query];
 
             if (self.dbManager.affectedRows != 0) {
@@ -89,10 +96,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     
+    // Get timestamp of touch event
     NSTimeInterval timestamp =[[NSDate date] timeIntervalSince1970];
     NSString *query = [NSString stringWithFormat:@"%.3f", timestamp];
     query = [query stringByAppendingString:@" "];
-
+    
+    // Add it to the touchData.txt file
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *documentTXTPath = [documentsDirectory stringByAppendingPathComponent:@"touchData.txt"];
@@ -104,6 +113,7 @@
     
 }
 
+// Delete all currect touch data by deleted and recreating the touchData.txt file
 - (IBAction)deleteTouchData:(id)sender {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -121,6 +131,7 @@
 
 }
 
+// Delete all currect accelerometer data by performing a detele query
 - (IBAction)deleteAccelData:(id)sender {
     NSString *query = [NSString stringWithFormat:@"Delete from accel_data"];
     [self.dbManager executeQuery:query];
